@@ -1,10 +1,4 @@
 $(function () {
-    // 注意：每次调用$.get()或$.post()或$.ajax()的时候
-    // 会先调用ajaxPrefilter这个函数,可以通过这个函数得到ajax的配置对象
-    // 便于维护 简化代码
-    $.ajaxPrefilter((options) => {
-        options.url = 'http://api-breakingnews-web.itheima.net'+ options.url
-    }) 
     // 登录注册切换
     $('.reg_box').hide()
     $('#link_reg').click(() => {
