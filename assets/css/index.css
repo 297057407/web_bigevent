@@ -19,7 +19,7 @@ iframe {
 }
 .touxiang {
     position: relative;
-    top: 2px;
+    top: 10px;
     margin-right: 8px;
     display: inline-block;
     width: 40px;
@@ -30,4 +30,9 @@ iframe {
     text-align: center;
     font-size: 20px;
     color: #fff;
+    overflow: hidden;
+}
+.touxiang img {
+    width: 40px;
+    height: 40px;
 }

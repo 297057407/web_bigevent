@@ -47,6 +47,7 @@ function renderTandN(user) {
     // 头像
     if (user.user_pic !== null) {
         $('.touxiang').html(`<img src="${user.user_pic}"> `)
+        $('.touxiang').css('backgroundColor','white')
     }
     else {
         $('.touxiang').html(name[0].toUpperCase())
