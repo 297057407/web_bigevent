@@ -11,6 +11,24 @@ $(function () {
 
     // 1.3 创建裁剪区域
     $image.cropper(options)
+
+    // 将现在头像显示出来
+    function get_now() {
+        $.ajax({
+            url: '/my/userinfo',
+            method: 'GET',
+            success: (res) => {
+                if (res.status !== 0) {
+                    return layui.layer.msg('获取头像失败')
+                }
+                $image
+                    .cropper('destroy')      // 销毁旧的裁剪区域
+                    .attr('src', res.data.user_pic)  // 重新设置图片路径
+                    .cropper(options)        // 重新初始化裁剪区域
+            }
+        })
+    }
+    get_now()
     // 上传按钮功能实现
     $('#btn_choose').click(() => {
         $('#btn_choose_img').click()
@@ -40,12 +58,12 @@ $(function () {
                 height: 100
             })
             .toDataURL('image/png')       // 将 Canvas 画布上的内容，转化为 base64 格式的字符串
-            //  base64 格式的字符串可以避免不必要的图片请求 但代码体积变大 小图片适合用
+        //  base64 格式的字符串可以避免不必要的图片请求 但代码体积变大 小图片适合用
         $.ajax({
             method: 'POST',
             url: '/my/update/avatar',
             data: {
-                avatar : dataURL
+                avatar: dataURL
             },
             success: function (res) {
                 if (res.status !== 0) {

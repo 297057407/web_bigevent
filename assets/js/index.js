@@ -53,5 +53,5 @@ function renderTandN(user) {
         $('.touxiang').html(name[0].toUpperCase())
 
     }
-
+    
 }
